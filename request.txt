@@ -1,0 +1,26 @@
+<script>
+
+			var url = 'https://nuvi-challenge.herokuapp.com/activities';
+			var xhr;
+			window.onload = request;
+
+			function request() {
+				document.cookie = 'name=SESSION';
+				document.cookie = 'value=NUVI-12345';
+				xhr = new XMLHttpRequest();						
+				xhr.open('GET', url, true);			
+				xhr.onreadystatechange = onChange;
+				xhr.send();            
+			}
+		
+			function onChange() {
+				if (xhr.readyState == 4) {
+					data();
+				}
+			}
+		
+			function data(){
+				console.log(xhr.response);
+			}						
+		
+</script>
